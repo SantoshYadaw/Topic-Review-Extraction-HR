@@ -68,23 +68,21 @@ More in-depth analysis of the performance can be found in [02_topic_model.ipynb]
 
 1. Latent Dirichlet Allocation (LDA) is a popular method for topic modeling. This helps identify overarching topics in the entire dataset.
 
-2. Embedding based Approaches + Clustering: The idea here is to try different embedding based model to convert the employee feedback into embeddings and then try to cluster them using different clustering algorithms. The underlying assumption here is that employee feedbacks which are similar in the embedding space will belong to a specific topic. This method would produce better results over LDA since it can help to preserve the semantic and syntactic meaning instead of using the traditional BOW approach. 
-
-a. Doc2Vec + KMeans - Using of Doc2Vec to generate the embeddings to generate topics followed by using Kmeans clustering method to cluster the similar documents together.
-
 <p align="center">
   <img src="references/Topics_by_department_LDA_kmeans.png" width=35%/>
   <br>                  
 </p>
 
-b. Doc2Vec + Kmeans - Convert documents to embeddings via Doc2Vec model. Clusters are form via Kmeans - documents with underlying similarity are likely similar documents/topics.
+2. Embedding based Approaches + Clustering: The idea here is to try different embedding based model to convert the employee feedback into embeddings and then try to cluster them using different clustering algorithms. The underlying assumption here is that employee feedbacks which are similar in the embedding space will belong to a specific topic. This method would produce better results over LDA since it can help to preserve the semantic and syntactic meaning instead of using the traditional BOW approach. 
+
+2b. Doc2Vec + Kmeans - Convert documents to embeddings via Doc2Vec model. Clusters are form via Kmeans - documents with underlying similarity are likely similar documents/topics.
 
 <p align="center">
   <img src="references/Topics_by_department_doc2vec_kemans.png" width=35%/>
   <br>                  
 </p>
 
-c. SBert + DBScan - Convert documents to embeddings via SBERT model. Clusters are form via DBScan (Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other) - documents with underlying similarity are likely similar documents/topics.
+2c. SBert + DBScan - Convert documents to embeddings via SBERT model. Clusters are form via DBScan (Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other) - documents with underlying similarity are likely similar documents/topics.
 
 Why use DBScan?
 - Groups 'densely grouped' data points into a single cluster
@@ -97,7 +95,7 @@ Why use DBScan?
   <br>                  
 </p>
 
-d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo fgind the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
+2d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo fgind the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
 
 Why use HDBScan?
 1. More robust to varying DBScan
