@@ -1,0 +1,19 @@
+name: topic-extract
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - ipykernel
+  - jupyter
+  - pandas
+  - openpyxl
+  - seaborn
+  - matplotlib
+  - scikit-learn
+  - wordcloud
+  - nltk
+  - gensim
+  - sentence-transformers
+  - hdbscan
+prefix: /opt/conda/envs/topic-extract
