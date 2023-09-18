@@ -98,10 +98,10 @@ Why use DBScan?
 2d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo fgind the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
 
 Why use HDBScan?
-1. More robust to varying DBScan
-2. Good clustering out of the box without miuch parameter tuning
-3. Robust to outliers 
-4. Does not require us to specify the number of clusters beforehand like K-Means
+- More robust to varying DBScan
+- Good clustering out of the box without miuch parameter tuning
+- Robust to outliers 
+- Does not require us to specify the number of clusters beforehand like K-Means
 
 <p align="center">
   <img src="references/Topics_by_department_sbert_hdbscan.png" width=35%/>
