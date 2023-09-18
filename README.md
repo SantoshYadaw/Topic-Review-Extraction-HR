@@ -50,21 +50,10 @@ Usage via Notebook
 Run the notebooks in the order below to perform EDA, Model training and Model evaluation
 
 1. [01_eda.ipynb](notebooks/01_eda.ipynb)
-2. [02_train_gpt2.ipynb](notebooks/02_train_gpt2.ipynb)
-3. [03_predict_gpt2.ipynb](notebooks/03_predict_gpt2.ipynb)
+2. [02_topic_model.ipynb](notebooks/02_topic_model.ipynb)
 
-Usage via Scripts
+[TODO]: Usage via Scripts
 ------------
-If you wish to run via the python scripts, run them in the following order
-
-1. Preprocess the raw data:
-``` python -m src.data.make_dataset ```
-
-2. Train the gpt2 model:
-``` python src.models.train_model ```
-
-3. Call inference using trained gpt2 model:
-``` python src.models.predict_model ```
 
 Exploratory Data Analysis
 ------------
@@ -72,17 +61,57 @@ Exploratory Data Analysis
 Exploratory Data Analysis notebook can be found in [01_eda.ipynb](notebooks/01_eda.ipynb). Please refer to the notebook for the details.
 
 
-Evaluation Metrics
-------------
-The Evaluation notebook can be found in [03_predict_gpt2.ipynb](notebooks/03_predict_gpt2.ipynb). Two evaluation metrics were considered to evaluate the output from the trained gpt2 model against the original given text in the validation dataset.
+Topic Modeling Approachs
+-----------
 
+More in-depth analysis of the performance can be found in [02_topic_model.ipynb](notebooks/02_topic_model.ipynb). 
 
-Model's Performance
-------------
+1. Latent Dirichlet Allocation (LDA) is a popular method for topic modeling. This helps identify overarching topics in the entire dataset.
+
+2. Embedding based Approaches + Clustering: The idea here is to try different embedding based model to convert the employee feedback into embeddings and then try to cluster them using different clustering algorithms. The underlying assumption here is that employee feedbacks which are similar in the embedding space will belong to a specific topic. This method would produce better results over LDA since it can help to preserve the semantic and syntactic meaning instead of using the traditional BOW approach. 
+
+a. Doc2Vec + KMeans - Using of Doc2Vec to generate the embeddings to generate topics followed by using Kmeans clustering method to cluster the similar documents together.
+
+<p align="center">
+  <img src="references/Topics_by_department_LDA_kmeans.png" width=35%/>
+  <br>                  
+</p>
+
+b. Doc2Vec + Kmeans - Convert documents to embeddings via Doc2Vec model. Clusters are form via Kmeans - documents with underlying similarity are likely similar documents/topics.
+
+<p align="center">
+  <img src="references/Topics_by_department_doc2vec_kemans.png" width=35%/>
+  <br>                  
+</p>
+
+c. SBert + DBScan - Convert documents to embeddings via SBERT model. Clusters are form via DBScan (Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other) - documents with underlying similarity are likely similar documents/topics.
+
+Why use DBScan?
+- Groups 'densely grouped' data points into a single cluster
+- Identifies clusters in large spatial datasets by looking at the local density of the data points
+- Robust to outliers 
+- Does not require us to specify the number of clusters beforehand like K-Means
+
+<p align="center">
+  <img src="references/Topics_by_department_sbert_dbscan.png" width=35%/>
+  <br>                  
+</p>
+
+d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo fgind the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
+
+Why use HDBScan?
+1. More robust to varying DBScan
+2. Good clustering out of the box without miuch parameter tuning
+3. Robust to outliers 
+4. Does not require us to specify the number of clusters beforehand like K-Means
+
+<p align="center">
+  <img src="references/Topics_by_department_sbert_hdbscan.png" width=35%/>
+  <br>                  
+</p>
 
 Future Work
 ------------
-
 
 References
 ------------
