@@ -77,11 +77,11 @@ b. In the context of LDA, a topic is essentially a distribution over the entire 
 
 Topic 0:
 - Words: feel, work, team, like, would, still, make, help, company and manager
-- Potential Interpretation: This topic seems to appear to be about dfeedback and opportunities within the company. Employees might be discussing about the feedback process, potential groiwth and development opportunities and how they feel about these processes.
+- Potential Interpretation: This topic seems to appear to be about to be about feelings, working conditions, teamwork, and management in the company.
 
 Topic 1:
 - Words: work, company, feel, feedback, like, opportunity, process, make , employee and would
-- Potential Interpretation: This topic leans sentiments about the companieis processes and feedback mechanisms. Feelings and opinions about working in the company and the opportunities (or lack thereof) available to the employees.
+- Potential Interpretation: This topic emphasize feelings towards work and the company. There's also an element of feedback and the process. Words like "feedback," "process," and "opportunity" hint at evaluation and growth aspects within the company.
 
 Topic 2:
 - Words: work, team, career, employeee, communication, make, within, difficult, respected, leadership
@@ -90,7 +90,7 @@ Topic 2:
 Topic 3:
 - Words: company, employee, feel, team, however, work, job, would, good and lack
 
-- Potential Interpretation: This topic seems to have a contrasting sentiment where there are some good and some lacking aspects to the job -> keyword is however
+- Potential Interpretation: This topic might revolve around the general sentiment about the company, with a touch on job satisfaction and areas of improvement. Words like "however," "lack," "good," and "job" can be seen as indicators of mixed feelings or areas that need attention.
 
 Topic 4:
 - Words: company, work, feel, feedback, would, employee, manager, like, appreciate and worklife
