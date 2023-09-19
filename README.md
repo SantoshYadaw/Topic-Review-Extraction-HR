@@ -206,7 +206,12 @@ Why use DBScan?
   <br>                  
 </p>
 
-2d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo fgind the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
+Observations
+- Two topics group were formed - 0. Company, team culture and compensation 1. Recognition of work
+- Topic 0 seems quite broad as it contains multiple themes
+- Department A and B majority seem to form only topic 0 while department C and D have a few on topic 1
+
+2d. SBert + HDBScan - Convert documents to embeddings via SBERT model.Clusters are form via HDBScan (Hierarchical Density-Based Spatial Clustering of Applications with Noise - density based cluster technique that groups data points based on their density and proximity to each other and over varying epsilon values and integrates the results tgo find the cluster that gives the best stability over epsilon) - documents with underlying similarity are likely similar documents/topics.
 
 Why use HDBScan?
 - More robust to varying DBScan
@@ -219,8 +224,16 @@ Why use HDBScan?
   <br>                  
 </p>
 
-Future Work
-------------
+Observations
+- Using HDBScan, more data points were found to be noisy as compared to DBScan
+- Two topics group were formed - 0. Company and team culture 1. More towards working culture like workload
+- Department C seems to contain many "noisy" data points (i.e. feedback which we are unable to form a cluster) while Deparment B only contains topics 0.
+- Department A seems to contain an almost equal mix of topic 0 and 1 although it does contain quite a number of noisy data points as well
 
-References
-------------
+Conclusion
+----------
+1. In terms of interpretability, going with an simple approach like LDA allows us to evaluate the results and look at the word distribution and probabilities for each of the topics being generated.
+
+2. However, in terms of performance, embedding based approaches would give much better results as unlike LDA which works like Bag of Words (BOW) approach (i.e. does not take into account for the word order), embeddings helps to preserve the semantic and syntactic meaning.
+
+3. Nonetheless, we would still need the help of an expert to look at the topics being generated and to identify the themes emerging from these topics.
